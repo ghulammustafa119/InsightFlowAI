@@ -25,7 +25,7 @@ INPUT → INSIGHT → CONFLICT → DECISION → ACTION → SIMULATION → OUTCOM
 ```
 
 | Stage | Module | What it does |
-|-------|--------|-------------|
+| --- | --- | --- |
 | **Ingestion** | `app.py` | Loads multi-source data (sales, complaints, suppliers, warehouses, news, financials) |
 | **Analysis** | `engine/analyzer.py` | Extracts insights, detects trends, finds contradictions, computes confidence |
 | **Planning** | `engine/planner.py` | Generates a 5-step action chain under budget / urgency / time constraints |
@@ -73,7 +73,7 @@ agentic_ai_system/
 ## 🆚 How This Differs from Simple Automation
 
 | Simple Automation | This Agentic System |
-|---|---|
+| --- | --- |
 | Follows fixed rules | Reasons about conflicting data |
 | Single-step execution | Multi-step chained actions |
 | No failure handling | Stochastic failures with recovery |
