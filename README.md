@@ -8,10 +8,10 @@
 
 ```bash
 # 1. Install dependencies
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 
 # 2. Run the app
-streamlit run app.py
+python -m streamlit run app.py
 ```
 
 The UI opens at `http://localhost:8501`. Click **"Load Sample Data"** then **"Run Full Agent Pipeline"**.
