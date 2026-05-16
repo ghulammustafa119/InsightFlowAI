@@ -59,7 +59,7 @@ agentic_ai_system/
 
 ## 🎯 Sample Scenario
 
-**Q2 2026 Supply Chain Crisis — Southeast Region**
+### Q2 2026 Supply Chain Crisis — Southeast Region
 
 - 📉 Fulfillment rate dropped from 94.1% → 72.9%
 - 📞 847 customer complaints in 30 days
