@@ -20,7 +20,7 @@ The UI opens at `http://localhost:8501`. Click **"Load Sample Data"** then **"Ru
 
 ## 🧠 Agentic Flow
 
-```
+```text
 INPUT → INSIGHT → CONFLICT → DECISION → ACTION → SIMULATION → OUTCOME
 ```
 
@@ -37,7 +37,7 @@ INPUT → INSIGHT → CONFLICT → DECISION → ACTION → SIMULATION → OUTCOM
 
 ## 📂 Project Structure
 
-```
+```text
 agentic_ai_system/
 ├── app.py                  # Streamlit UI
 ├── requirements.txt        # Dependencies
