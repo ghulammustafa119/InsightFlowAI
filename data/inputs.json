@@ -1,0 +1,144 @@
+{
+  "scenario": "Q2 2026 Supply Chain Crisis — Southeast Region",
+  "timestamp": "2026-05-16T08:00:00Z",
+  "data_sources": {
+    "sales_data": {
+      "source": "ERP System — SAP S/4HANA",
+      "region": "Southeast",
+      "period": "2026-Q2",
+      "metrics": {
+        "total_orders": 12480,
+        "fulfilled_orders": 9100,
+        "pending_orders": 2830,
+        "cancelled_orders": 550,
+        "fulfillment_rate_pct": 72.9,
+        "avg_delivery_days": 6.2,
+        "prev_quarter_fulfillment_rate_pct": 94.1,
+        "revenue_at_risk_usd": 1850000
+      },
+      "top_products_affected": [
+        {"sku": "WH-4420", "name": "Industrial Pump Assembly", "shortage_units": 340},
+        {"sku": "WH-4421", "name": "Hydraulic Valve Kit", "shortage_units": 210},
+        {"sku": "WH-4435", "name": "Pressure Gauge Module", "shortage_units": 185}
+      ]
+    },
+    "customer_complaints": {
+      "source": "Zendesk CRM + Call Center Logs",
+      "period": "Last 30 days",
+      "total_tickets": 847,
+      "categories": {
+        "delivery_delay": {"count": 412, "severity": "high", "avg_resolution_hours": 72},
+        "wrong_item_shipped": {"count": 134, "severity": "medium", "avg_resolution_hours": 48},
+        "order_cancellation": {"count": 189, "severity": "high", "avg_resolution_hours": 24},
+        "quality_issue": {"count": 62, "severity": "critical", "avg_resolution_hours": 96},
+        "billing_error": {"count": 50, "severity": "low", "avg_resolution_hours": 12}
+      },
+      "sentiment_score": -0.67,
+      "escalation_rate_pct": 23.4,
+      "sample_complaints": [
+        "Order #98231 — promised delivery May 2, still not received. This is the third delay.",
+        "Received wrong parts for hydraulic system. Production line halted for 2 days.",
+        "Quality of last batch of pressure gauges is terrible. 30% failure rate on install.",
+        "We are considering switching suppliers if this continues through June."
+      ]
+    },
+    "supplier_status": {
+      "source": "Supplier Portal + Procurement System",
+      "suppliers": [
+        {
+          "id": "SUP-001",
+          "name": "Zhengzhou Heavy Manufacturing",
+          "status": "delayed",
+          "delay_days": 18,
+          "reason": "Port congestion at Shanghai + raw material shortage",
+          "affected_skus": ["WH-4420", "WH-4421"],
+          "reliability_score": 0.42,
+          "contract_penalty_eligible": true
+        },
+        {
+          "id": "SUP-002",
+          "name": "MidWest Components LLC",
+          "status": "active",
+          "delay_days": 0,
+          "reason": null,
+          "affected_skus": [],
+          "reliability_score": 0.91,
+          "capacity_available_pct": 35
+        },
+        {
+          "id": "SUP-003",
+          "name": "Bavaria Precision GmbH",
+          "status": "partial",
+          "delay_days": 7,
+          "reason": "Factory maintenance — partial capacity until May 25",
+          "affected_skus": ["WH-4435"],
+          "reliability_score": 0.78,
+          "capacity_available_pct": 60
+        }
+      ]
+    },
+    "warehouse_data": {
+      "source": "WMS — Manhattan Associates",
+      "warehouses": [
+        {
+          "id": "WH-ATL",
+          "location": "Atlanta, GA",
+          "inventory_units": 4200,
+          "capacity_pct": 38,
+          "discrepancy": "System shows 4200 units; physical audit found 3870 units (330 unit gap)"
+        },
+        {
+          "id": "WH-MIA",
+          "location": "Miami, FL",
+          "inventory_units": 1850,
+          "capacity_pct": 72,
+          "discrepancy": "No discrepancy detected"
+        },
+        {
+          "id": "WH-CLT",
+          "location": "Charlotte, NC",
+          "inventory_units": 2900,
+          "capacity_pct": 55,
+          "discrepancy": "System shows 2900 units; physical audit found 3120 units (220 unit surplus — possible unreported returns)"
+        }
+      ]
+    },
+    "news_signals": {
+      "source": "Reuters + Bloomberg Terminal Alerts",
+      "signals": [
+        {
+          "headline": "Shanghai Port Congestion Expected to Worsen Through June",
+          "date": "2026-05-14",
+          "impact": "high",
+          "relevance": "Directly affects SUP-001 shipping timeline"
+        },
+        {
+          "headline": "US Tariff Increase on Industrial Components Takes Effect June 1",
+          "date": "2026-05-12",
+          "impact": "medium",
+          "relevance": "10% cost increase on imports from China — affects SUP-001 pricing"
+        },
+        {
+          "headline": "Competitor Apex Industrial Acquires Regional Distributor",
+          "date": "2026-05-10",
+          "impact": "medium",
+          "relevance": "Competitive pressure — risk of losing customers during fulfillment gaps"
+        },
+        {
+          "headline": "Steel Prices Drop 8% on Global Demand Slowdown",
+          "date": "2026-05-09",
+          "impact": "low",
+          "relevance": "Potential cost savings on raw materials if locked in now"
+        }
+      ]
+    },
+    "financial_constraints": {
+      "source": "Finance — SAP BPC",
+      "emergency_budget_usd": 500000,
+      "quarterly_procurement_budget_remaining_usd": 1200000,
+      "expedited_shipping_cost_per_unit_usd": 45,
+      "penalty_clause_value_usd": 120000,
+      "max_acceptable_loss_usd": 750000
+    }
+  }
+}
